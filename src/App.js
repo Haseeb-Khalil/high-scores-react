@@ -4,10 +4,13 @@ import CountryTable from "./HighScore-Country-Table";
 import AllCountryScores from "./scores";
 
 function App() {
+  const SortedCountries = AllCountryScores.sort((a, b) => {
+    return a.name < b.name ? -1 : 1;
+  });
   return (
     <div className="App">
       <Heading />
-      {AllCountryScores.map((country, index) => {
+      {SortedCountries.map((country, index) => {
         return <CountryTable key={index} value={country} />;
       })}
     </div>
