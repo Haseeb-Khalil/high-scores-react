@@ -3,6 +3,7 @@ import React from "react";
 const CountryTable = (props) => {
   //console.log(props);
   const { scores, name } = props.value;
+  const sortedScores = scores.sort((a, b) => (a.s < b.s ? 1 : -1));
   //console.log(scores);
   //console.log(name);
   return (
@@ -22,7 +23,7 @@ const CountryTable = (props) => {
           </tr>
         </thead>
         <tbody>
-          {scores.map((person, index) => {
+          {sortedScores.map((person, index) => {
             return (
               <tr key={index}>
                 <td>{person.n}</td>
